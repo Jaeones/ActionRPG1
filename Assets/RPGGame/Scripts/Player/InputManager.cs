@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace RPGGame
@@ -39,7 +40,10 @@ namespace RPGGame
 
             IsJump = jumpAction.WasPressedThisFrame();
 
-            IsAttack = attackAction.WasPressedThisFrame();
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                IsAttack = attackAction.WasPressedThisFrame();
+            }  
         }
     }
 }

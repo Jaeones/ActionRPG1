@@ -32,8 +32,8 @@ namespace RPGGame
             if (playerAttackState != null)
             {
                 playerAttackState.SubscribeOnAttackBegin(weapon.OnAttackBegin);
-
-                playerAttackState.SubscribeOnAttackEnd(weapon.OnAttackEnd);
+ 
+                playerAttackState.SubscribeOnAttackCheckEnd(weapon.OnAttackEnd);
             }
         }
 

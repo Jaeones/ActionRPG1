@@ -105,8 +105,17 @@ namespace RPGGame
         private void Update()
         {
 
-            if (state == State.Dead || IsPlayerDead)
+            if (state == State.Dead)
             {
+                return;
+            }
+
+            if (IsPlayerDead)
+            {
+                if (state == State.Chase || state == State.Attack)
+                {
+                    SetState(State.Idle);
+                }
                 return;
             }
 
@@ -115,16 +124,17 @@ namespace RPGGame
                 if (Util.IsInSight(refTransform, playerTransform, monsterData.singtAngle, monsterData.sightRange))
                 {
                     SetState(State.Chase);
-                    Util.LogRed("�÷��̾ �þ߿� ����");
+                    Util.LogRed("플레이어가 시야에 들어왔습니다.");
                     return;
                 }
             }
+
             if (state == State.Chase || state == State.Attack)
             {
                 if (!Util.IsInSight(refTransform, playerTransform, monsterData.singtAngle, monsterData.sightRange))
                 {
                     SetState(State.Idle);
-                    Util.LogRed("�÷��̾ �þ߿��� ����");
+                    Util.LogGreen("플레이어가 시야에서 벗어났습니다.");
                     return;
                 }
             }

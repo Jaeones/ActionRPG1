@@ -16,6 +16,9 @@ namespace RPGGame
         public virtual void Use()
         {
             //아이템 사용 시의 효과를 구현하는 메서드
+            InventoryManager.Instance.OnItemUsed(this);
+
+            Dialogue.Instance.ShowDialogueTextTemporarily(messageWhenUsed);
         }
     }
 
