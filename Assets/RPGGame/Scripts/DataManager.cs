@@ -13,6 +13,10 @@ namespace RPGGame
 
         public MonsterData MonsterData { get; private set; }
 
+        public QuestData QuestData { get; private set; }
+
+        public NPCData NPCData { get; private set; }
+
         private void Awake()
         {
             if (Instance == null)
@@ -46,7 +50,24 @@ namespace RPGGame
                     Debug.LogError("몬스터 레벨 데이터가 초기화 되지않았습니다");
                 }
             }
+
+            if (QuestData == null)
+            {
+                QuestData = Resources.Load<QuestData>("Data/QuestData");
+                if (QuestData.quests.Count == 0)
+                {
+                    Debug.LogError("퀘스트 데이터가 초기화 되지않았습니다");
+                }
+            }
+
+            if (NPCData == null)
+            {
+                NPCData = Resources.Load<NPCData>("Data/NPCData");
+                if (NPCData.npcs.Count == 0)
+                {
+                    Debug.LogError("NPC 데이터가 초기화 되지않았습니다");
+                }
+            }
         }
     }
-
 }

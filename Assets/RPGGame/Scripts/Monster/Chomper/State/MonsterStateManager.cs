@@ -21,7 +21,7 @@ namespace RPGGame
         [SerializeField] private State state = State.None;
 
 
-        // ������ �� ������Ʈ�� ����� ������Ʈ ��ũ��Ʈ �迭
+        // 몬스터 스테이트 컴포넌트 배열
         [SerializeField] private MonsterStateBase[] states;
 
         [SerializeField] private UnityEvent<State> OnStateChanged;
@@ -40,6 +40,9 @@ namespace RPGGame
 
         public bool IsPlayerDead { get { return targetPlayerStateManager.isPlayerDead; } }
 
+        // 몬스터가 생성과 동시에 플레이어를 감지할 수 있도록 하는 프로퍼티
+        public bool IsForcedToChase { get; set; } = false;
+
 
         private void Awake()
         {
@@ -55,7 +58,8 @@ namespace RPGGame
                 monsterAttackController.SetAttack(currentLevelData.attack);
             }
 
-            // �÷��̾� ������Ʈ ������Ʈ �ʱ�ȭ(������ ����)
+            // 몬스터 스테이트 컴포넌트 초기화
+
             for (int ix = 0; ix < states.Length; ix++)
             {
                 string componentName = $"RPGGame.Monster{(State)ix}State";
@@ -129,7 +133,7 @@ namespace RPGGame
                 }
             }
 
-            if (state == State.Chase || state == State.Attack)
+            if (state == State.Chase && !IsForcedToChase)
             {
                 if (!Util.IsInSight(refTransform, playerTransform, monsterData.singtAngle, monsterData.sightRange))
                 {
@@ -157,13 +161,13 @@ namespace RPGGame
             OnStateChanged?.Invoke(state);
         }
 
-        // ������Ʈ ���� �̺�Ʈ�� ������ �� ����� �Լ�
+        // 몬스터 스테이트 변경 이벤트 구독
         public void SubscribeOnstateChanged(UnityAction<State> listener)
         {
             OnStateChanged?.AddListener(listener);
         }
 
-        // ������ ������ �����ϴ� �Լ�
+        // 몬스터 레벨 설정
         public void SetLevel(int level)
         {
             this.level = level;
@@ -173,10 +177,16 @@ namespace RPGGame
 
         private void OnMonsterDead()
         {
-            Util.LogRed($"{transform.root.name}��(��) �׾����ϴ�.");
+            Util.LogRed($"{transform.root.name} 사망.");
 
-            // ���Ͱ� �׾��� �� �߰����� ó���� ���⿡ �ۼ��� �� �ֽ��ϴ�.
+            // 몬스터 사망 시 처리할 로직을 여기에 작성
             SetState(State.Dead);
+        }
+
+        public void SetForceToChase()
+        {
+            IsForcedToChase = true;
+            SetState(State.Chase);
         }
     }
 }

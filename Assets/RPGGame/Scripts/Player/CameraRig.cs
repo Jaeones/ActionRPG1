@@ -11,6 +11,16 @@ namespace RPGGame
 
         private Transform refTransform;
 
+        private Camera refCamera;
+
+        [SerializeField] private float rotationDelay = 5f;
+        [SerializeField] private float rotationSpeed = 0.2f;
+
+        [SerializeField] private Vector2 rotationXMinMax = new Vector2(-20f , 25f);
+
+        private float xRotation = 0f;
+        private float yRotation = 0f;
+
         private void Awake()
         {
             if (followTarget == null)
@@ -22,11 +32,31 @@ namespace RPGGame
             {
                 followTarget = GameObject.FindGameObjectWithTag("Player").transform;
             }
+
+            if (refCamera == null)
+            {
+                refCamera = Camera.main;
+            }
         }
 
         private void LateUpdate()
         {
             refTransform.position = Vector3.Lerp(refTransform.position, followTarget.position, movementDelay * Time.deltaTime);
+
+            if(UiInventoryWindow.IsOn)
+            {
+                return;
+            }
+
+            xRotation -= InputManager.MouseMove.y * rotationSpeed;
+            xRotation = Mathf.Clamp(xRotation, rotationXMinMax.x, rotationXMinMax.y);
+
+            yRotation += InputManager.MouseMove.x * rotationSpeed;
+
+            Quaternion startRotation = refTransform.rotation;
+            Quaternion endRotation = Quaternion.Euler(new Vector3(xRotation, yRotation, 0f));
+
+            refTransform.rotation = Quaternion.Slerp(startRotation, endRotation, rotationDelay * Time.deltaTime);
         }
 
     }

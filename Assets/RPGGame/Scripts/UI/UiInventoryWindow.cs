@@ -82,11 +82,15 @@ namespace RPGGame
         public static void ShowWindow()
         {
             instance.window.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         public static void CloseWindow()
         {
             instance.window.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false; 
         }
     }
 }

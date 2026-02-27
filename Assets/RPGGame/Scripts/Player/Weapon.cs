@@ -40,6 +40,9 @@ namespace RPGGame
 
                 // 무기를 수집했을 때 플레이어의 공격력을 증가시키는 로직을 여기에 추가할 수 있습니다.
                 OnItemCollected?.Invoke();  // 아이템이 수집됐을 때 실행할 이벤트
+
+                // 임시로 아이템이 수집했을때 몬스터 웨이브 생성
+                //MonsterSpawner.SpawnMonsters(5, 2);
             }
         }
 
