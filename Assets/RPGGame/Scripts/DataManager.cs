@@ -17,6 +17,9 @@ namespace RPGGame
 
         public NPCData NPCData { get; private set; }
 
+        public MonsterData GrenadierData { get; private set; }
+
+
         private void Awake()
         {
             if (Instance == null)
@@ -68,6 +71,19 @@ namespace RPGGame
                     Debug.LogError("NPC 데이터가 초기화 되지않았습니다");
                 }
             }
+
+            GrenadierData = Resources.Load<MonsterData>("Data/GrenadierLevelData");
+            if (GrenadierData == null)
+            {
+                Debug.LogError("GrenadierLevelData.asset 로드 실패 (Resources/Data 경로 확인)");
+                return;
+            }
+            if (GrenadierData.levels == null || GrenadierData.levels.Count == 0)
+            {
+                Debug.LogError("보스 몬스터 레벨 데이터가 비어 있습니다.");
+            }
+
+
         }
     }
 }

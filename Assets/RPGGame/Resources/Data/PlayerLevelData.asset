@@ -21,28 +21,28 @@ MonoBehaviour:
     requiredExp: 20
   - level: 3
     maxHp: 130
-    requiredExp: 50
+    requiredExp: 45
   - level: 4
     maxHp: 150
     requiredExp: 75
   - level: 5
     maxHp: 170
-    requiredExp: 100
+    requiredExp: 110
   - level: 6
     maxHp: 200
-    requiredExp: 115
+    requiredExp: 150
   - level: 7
     maxHp: 220
-    requiredExp: 135
+    requiredExp: 195
   - level: 8
     maxHp: 250
-    requiredExp: 160
+    requiredExp: 245
   - level: 9
     maxHp: 270
-    requiredExp: 175
+    requiredExp: 300
   - level: 10
     maxHp: 300
-    requiredExp: 200
+    requiredExp: 360
   rotationSpeed: 800
   jumpPower: 8
   gravityScale: 10

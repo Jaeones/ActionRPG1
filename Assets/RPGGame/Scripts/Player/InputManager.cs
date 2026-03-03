@@ -56,10 +56,17 @@ namespace RPGGame
                 else UiInventoryWindow.ShowWindow();
             }
 
+            bool toggleQuest = Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame;
+            if (toggleQuest)
+            {
+                if (UIQuestWindow.IsOn) UIQuestWindow.Close();
+                else UIQuestWindow.Show();
+            }
+
             Movement = moveAction.ReadValue<Vector2>();
             IsJump = jumpAction.WasPressedThisFrame();
 
-            if (UiInventoryWindow.IsOn)
+            if (UiInventoryWindow.IsOn || UIQuestWindow.IsOn)
             {
                 IsAttack = false;
                 MouseMove = Vector2.zero;

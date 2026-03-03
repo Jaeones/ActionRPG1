@@ -227,7 +227,23 @@ namespace RPGGame
             // 플레이어가 죽었을 때 처리할 로직을 여기에 작성
             SetState(State.Dead);
 
+            Dialogue.Instance.ShowDialogueTextTemporarily("엘렌이 전사했습니다. \n마을을 지키지 못했습니다...");
+
         }
+
+        public void OnPlayerLevelUp(int newLevel)
+        {
+            level = newLevel;
+
+            currentLevelData = DataManager.Instance.PlayerData.levels[level - 1];
+
+            HpController hpController = GetComponentInChildren<HpController>();
+            if (hpController != null)
+            {
+                hpController.SetMaxHp(currentLevelData.maxHp);
+            }
+        }
+
     }
 }
 

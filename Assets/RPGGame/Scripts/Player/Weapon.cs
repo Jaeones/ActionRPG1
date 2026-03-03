@@ -26,6 +26,14 @@ namespace RPGGame
 
         protected override void OnCollect(Collider other)
         {
+            if (QuestManager.Instance.CurrentQuest.type != QuestData.Type.CollectWeapon)
+            {
+                Dialogue.Instance.ShowDialogueTextTemporarily("무기를 찾아라 퀘스트를 진행하세요. \n담당 NPC와 대화하면 퀘스트를 진행할 수 있습니다.");
+
+                return;
+            }
+
+
             //base.OnCollect(other);
             if (!HasCollected && other.CompareTag("Player"))
             {

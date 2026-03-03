@@ -180,12 +180,26 @@ namespace RPGGame
             Util.LogRed($"{transform.root.name} 사망.");
 
             // 몬스터 사망 시 처리할 로직을 여기에 작성
+            PlayerLevelController playerLevelController = FindFirstObjectByType<PlayerLevelController>();
+
+            if (playerLevelController != null)
+            {
+                playerLevelController.GainExp(currentLevelData.gainExp);
+            }
+
             SetState(State.Dead);
+            
         }
 
         public void SetForceToChase()
         {
             IsForcedToChase = true;
+            QuestItem questItem = GetComponentInChildren<QuestItem>();
+            if (questItem != null)
+            {
+                questItem.SetType(QuestData.Type.Wave);
+            }
+
             SetState(State.Chase);
         }
     }
