@@ -125,7 +125,7 @@ namespace RPGGame
 
             if (state == State.Idle || state == State.Patrol)
             {
-                if (Util.IsInSight(refTransform, playerTransform, monsterData.singtAngle, monsterData.sightRange))
+                if (Util.IsInSight(refTransform, playerTransform, monsterData.sightAngle, monsterData.sightRange))
                 {
                     SetState(State.Chase);
                     Util.LogRed("플레이어가 시야에 들어왔습니다.");
@@ -135,7 +135,7 @@ namespace RPGGame
 
             if (state == State.Chase && !IsForcedToChase)
             {
-                if (!Util.IsInSight(refTransform, playerTransform, monsterData.singtAngle, monsterData.sightRange))
+                if (!Util.IsInSight(refTransform, playerTransform, monsterData.sightAngle, monsterData.sightRange))
                 {
                     SetState(State.Idle);
                     Util.LogGreen("플레이어가 시야에서 벗어났습니다.");

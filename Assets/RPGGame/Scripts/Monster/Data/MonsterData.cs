@@ -20,7 +20,7 @@ namespace RPGGame
         [SerializeField]
         public List<LevelData> levels;
         public float patrolWaitTime = 3f;
-        public float singtAngle = 60f;
+        public float sightAngle = 60f;
         public float sightRange = 10f;
         public float chaseRotateSpeed = 540f;
         public float patrolRotateSpeed = 360f;

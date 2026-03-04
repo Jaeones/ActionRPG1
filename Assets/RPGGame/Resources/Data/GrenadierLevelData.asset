@@ -74,7 +74,7 @@ MonoBehaviour:
     defense: 32
     gainExp: 60
   patrolWaitTime: 3
-  singtAngle: 60
+  sightAngle: 60
   sightRange: 10
   chaseRotateSpeed: 540
   patrolRotateSpeed: 360
