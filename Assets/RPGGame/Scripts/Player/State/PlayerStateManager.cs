@@ -55,6 +55,8 @@ namespace RPGGame
 
         public bool isPlayerDead { get { return state == State.Dead; } }
 
+        public State currentState { get { return state; } }
+
         private void Awake()
         {
             //data = Resources.Load("Data/PlayerData") as PlayerData;
@@ -108,12 +110,12 @@ namespace RPGGame
 
         private void OnEnable()
         {
-            SetState(State.Idle);
+            //SetState(State.Idle);
         }
 
         private void Update()
         {
-            if (isPlayerDead)
+            if (isPlayerDead || state == State.None)
             {
                 return;
             }

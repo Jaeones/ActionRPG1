@@ -62,7 +62,7 @@ namespace RPGGame
 
         private void Awake()
         {
-            data = DataManager.Instance.MonsterData;
+            data = DataManager.Instance.GrenadierData;
             currentLevelData = data.levels[level - 1];
             
             states = new GrenadierStateBase[(int)State.Length];
@@ -108,6 +108,11 @@ namespace RPGGame
         private void OnEnable()
         {
             SetState(State.Idle);
+            BackGroundMusicPlayer musicPlayer = FindFirstObjectByType<BackGroundMusicPlayer>();
+            if (musicPlayer != null)
+            {
+                musicPlayer.PlayBattleMusic();
+            }
         }
 
         public void SetState(int state)

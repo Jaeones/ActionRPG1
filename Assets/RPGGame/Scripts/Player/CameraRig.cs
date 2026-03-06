@@ -18,6 +18,8 @@ namespace RPGGame
 
         [SerializeField] private Vector2 rotationXMinMax = new Vector2(-20f , 25f);
 
+        [SerializeField] private PlayerStateManager playerStateManager;
+
         private float xRotation = 0f;
         private float yRotation = 0f;
 
@@ -37,10 +39,22 @@ namespace RPGGame
             {
                 refCamera = Camera.main;
             }
+
+            if (playerStateManager == null)
+            {
+                playerStateManager = FindFirstObjectByType<PlayerStateManager>();
+            }
         }
 
         private void LateUpdate()
         {
+            PlayerStateManager.State currentState = playerStateManager.currentState;
+
+            if (currentState == PlayerStateManager.State.None || currentState == PlayerStateManager.State.Dead)
+            {
+                return;
+            }
+
             refTransform.position = Vector3.Lerp(refTransform.position, followTarget.position, movementDelay * Time.deltaTime);
 
             if(UiInventoryWindow.IsOn)

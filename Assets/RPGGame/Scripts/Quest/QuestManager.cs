@@ -189,9 +189,15 @@ namespace RPGGame
                 MonsterSpawner.StartMonsterWave();
             }
 
-            // 보스 몬스터 퀘스트의 경우, 보스 몬스터 스폰은 BossMonsterSpawner에서 처리하도록 확장할 수 있습니다.
+            // 보스 몬스터 퀘스트의 경우, 보스 몬스터 스폰.
 
+            else if (CurrentQuest.type == QuestData.Type.Kill && CurrentQuest.targetType == QuestData.TargetType.Grenadier)
+            {
+                MonsterSpawner.SpawnGrenadier();
+            }
         }
+
+
 
         public void SubscribeOnQuestStarted(UnityAction<int> listener)
         {

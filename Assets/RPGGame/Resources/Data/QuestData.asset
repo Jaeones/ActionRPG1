@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPGGame.QuestData
   quests:
   - questID: 0
-    questTitle: "\uC2DC\uC791"
+    questTitle: "\uADC0\uD658"
     type: -1
     targetType: -1
     countToComplete: 0
     exp: 0
-    questBeginDialogue: "\uC5D8\uB80C \uBC18\uAC00\uC6CC\uC694"
-    questProgressDialogue: "\uC5D8\uB80C \uBC18\uAC00\uC6CC\uC694"
-    smallTalkDialogue: "\uC5D8\uB80C \uBC18\uAC00\uC6CC\uC694"
+    questBeginDialogue: "\uC5D8\uB80C \uB3CC\uC544\uC654\uAD6C\uB098! "
+    questProgressDialogue: "\uC624\uB298\uC774 \uB9C8\uC744\uC758 \uD070 \uC704\uD5D8\uC774
+      \uC628\uB2E4\uB294 \uADF8 \uB0A0\uC774\uC57C"
+    smallTalkDialogue: "\uB3C4\uB300\uCCB4 \uBB34\uC2A8 \uC77C\uC774 \uC77C\uC5B4\uB098\uB294\uAC78\uAE4C..."
     startCondition: 0
     nextQuestID: 1
     npcID: 1
@@ -32,9 +33,14 @@ MonoBehaviour:
     targetType: 0
     countToComplete: 1
     exp: 10
-    questBeginDialogue: "\uB9F5\uC5D0\uC11C \uBB34\uAE30\uB97C \uCC3E\uC544 \uD68D\uB4DD\uD558\uC138\uC694"
-    questProgressDialogue: "\uBB34\uAE30\uB97C \uCC3E\uC544\uC8FC\uC138\uC694"
-    smallTalkDialogue: "\uC5D8\uB80C \uBC18\uAC00\uC6CC\uC694"
+    questBeginDialogue: "\uC6B0\uB9AC \uB9C8\uC744\uC5D0 \uC874\uC7AC\uD558\uB294
+      \uADF8 \uBB34\uAE30\uB9CC \uCC3E\uC544\uB0B8\uB2E4\uBA74 \uC5D8\uB80C \uB108\uC5D0\uAC8C
+      \uD070 \uB3C4\uC6C0\uC774 \uB420\uAC70\uC57C"
+    questProgressDialogue: "\uB098\uB3C4 \uC5F4\uC2EC\uD788 \uBB34\uAE30\uB97C \uCC3E\uACE0
+      \uC788\uC5B4"
+    smallTalkDialogue: "\uC804\uC2B9\uC5D0 \uC758\uD558\uBA74 \uBB34\uAE30\uB294
+      \uB2E8\uC0C1 \uC704\uC5D0\uC11C \uC8FC\uC778\uC744 \uAE30\uB2E4\uB9B0\uB2E4\uACE0
+      \uD588\uC5B4"
     startCondition: 0
     nextQuestID: 1
     npcID: 1
@@ -45,10 +51,13 @@ MonoBehaviour:
     targetType: 1
     countToComplete: 2
     exp: 15
-    questBeginDialogue: "\uBA39\uAC1C\uBE44 2\uB9C8\uB9AC\uB97C \uCC98\uCE58\uD574
-      \uC8FC\uC138\uC694."
-    questProgressDialogue: "\uBA39\uAC1C\uBE44\uB97C \uC7A1\uC544\uC8FC\uC138\uC694"
-    smallTalkDialogue: "\uB9C8\uC744\uC744 \uC9C0\uCF1C\uC8FC\uC138\uC694!"
+    questBeginDialogue: "\uBB34\uAE30\uB97C \uCC3E\uC558\uAD6C\uB098 \uC5D8\uB80C!
+      \uD55C\uBC88 \uC800\uAE30 \uC788\uB294 \uBA39\uAE68\uBE44\uC5D0\uAC8C \uBB34\uAE30\uB97C
+      \uD14C\uC2A4\uD2B8\uD574\uBD10 2\uB9C8\uB9AC \uC815\uB3C4\uBA74 \uAD1C\uCC2E\uC744
+      \uAC70 \uAC19\uC544"
+    questProgressDialogue: "\uC5BC\uB978 \uBB34\uAE30\uB97C \uD14C\uC2A4\uD2B8\uD574\uBD10!"
+    smallTalkDialogue: "\uADF8\uAC8C \uC774\uBC88\uC5D0 \uC0C8\uB85C \uC5BB\uC740
+      \uBB34\uAE30\uC57C?"
     startCondition: 1
     nextQuestID: 2
     npcID: 1
@@ -59,10 +68,16 @@ MonoBehaviour:
     targetType: 1
     countToComplete: 5
     exp: 30
-    questBeginDialogue: "\uBA39\uAC1C\uBE44 5\uB9C8\uB9AC\uB97C \uCC98\uCE58\uD574
-      \uC8FC\uC138\uC694."
-    questProgressDialogue: "\uBA39\uAC1C\uBE44\uB97C \uC7A1\uC544\uC8FC\uC138\uC694"
-    smallTalkDialogue: "\uB9C8\uC744\uC744 \uC9C0\uCF1C\uC8FC\uC138\uC694!"
+    questBeginDialogue: "\uC774\uB807\uAC8C\uB098 \uAE08\uBC29 \uBA39\uAE68\uBE44\uB97C
+      \uC7A1\uB2E4\uB2C8 \uB300\uB2E8\uD574 \uC5D8\uB80C! \uBB34\uAE30\uAC00 \uC88B\uC740
+      \uAC83\uB3C4 \uD55C\uBAAB \uD558\uB294\uAC70 \uAC19\uACE0 \uD558\uC9C0\uB9CC
+      \uC544\uC9C1 \uB9C8\uC744\uC744 \uBC30\uD68C\uD558\uB294 \uBA39\uAE68\uBE44\uAC00
+      \uB9CE\uC544 \uBA39\uAE68\uBE44\uB97C \uB354 \uCC98\uC9C0\uD574\uC904\uC218
+      \uC788\uC5B4 \uC5D8\uB80C?"
+    questProgressDialogue: "\uBA39\uAE68\uBE44\uB97C \uC7A1\uC544\uC918 5\uB9C8\uB9AC\uC815\uB3C4\uBA74
+      \uC801\uB2F9\uD560 \uAC70 \uAC19\uC544"
+    smallTalkDialogue: "\uADF8\uAC8C \uC774\uBC88\uC5D0 \uC0C8\uB85C \uC5BB\uC740
+      \uBB34\uAE30\uC57C?"
     startCondition: 2
     nextQuestID: 3
     npcID: 1
@@ -73,9 +88,12 @@ MonoBehaviour:
     targetType: 1
     countToComplete: 10
     exp: 50
-    questBeginDialogue: "\uBA39\uAC1C\uBE44\uAC00 \uBAB0\uB824\uC640\uC694 \uB9C9\uC544\uC8FC\uC138\uC694"
-    questProgressDialogue: "\uC544\uC9C1 \uBA39\uAC1C\uBE44\uAC00 \uB9CE\uC544\uC694"
-    smallTalkDialogue: "\uB9C8\uC744\uC744 \uC9C0\uCF1C\uC8FC\uC138\uC694!"
+    questBeginDialogue: "\uC5D8\uB80C \uC815\uB9D0 \uACE0\uB9C8\uC6CC! \uADFC\uB370
+      \uC774\uAC8C \uBB34\uC2A8 \uC18C\uB9AC\uC9C0...? \uC800\uAC74 \uBA39\uAE68\uBE44
+      \uC544\uB2C8\uC57C? \uD654\uAC00 \uB0AC\uB098\uBD10! \uC5B4\uB5A1\uD574 \uC5D8\uB80C!"
+    questProgressDialogue: "\uD654\uB09C \uBA39\uAE68\uBE44\uB4E4\uC774 \uCC98\uB4E4\uC5B4\uC624\uACE0
+      \uC788\uC5B4! \uB3C4\uC640\uC918 \uC5D8\uB80C!"
+    smallTalkDialogue: "\uC73C\uC544\uC544 \uC5D8\uB80C \uB3C4\uC640\uC918!!!"
     startCondition: 3
     nextQuestID: 4
     npcID: 1
@@ -86,25 +104,32 @@ MonoBehaviour:
     targetType: 1
     countToComplete: 20
     exp: 70
-    questBeginDialogue: "\uBA39\uAC1C\uBE44\uAC00 \uB610 \uBAB0\uB824\uC640\uC694
-      \uB9C9\uC544\uC8FC\uC138\uC694"
-    questProgressDialogue: "\uC544\uC9C1 \uBA39\uAC1C\uBE44\uAC00 \uB9CE\uC544\uC694"
-    smallTalkDialogue: "\uB9C8\uC744\uC744 \uC9C0\uCF1C\uC8FC\uC138\uC694!"
+    questBeginDialogue: "\uC544\uC9C1 \uACF5\uC138\uAC00 \uB05D\uB098\uC9C0 \uC54A\uC558\uB098\uBD10
+      \uB354 \uB9CE\uC740 \uBA39\uAE68\uBE44\uAC00 \uC624\uACE0\uC788\uC5B4!!"
+    questProgressDialogue: "\uBA39\uAE68\uBE44\uB97C \uBB3C\uB9AC\uCCD0\uC11C \uB9C8\uC744\uC744
+      \uAD6C\uD574\uC918 \uC5D8\uB80C!!"
+    smallTalkDialogue: "\uC73C\uC544\uC544 \uC5D8\uB80C \uB3C4\uC640\uC918!!!"
     startCondition: 4
     nextQuestID: 5
     npcID: 1
     monsterLevel: 5
   - questID: 6
-    questTitle: "\uBCF4\uC2A4 \uBAAC\uC2A4\uD130\uB97C \uC7A1\uC544\uB77C"
+    questTitle: "\uADF8\uB79C\uB2E4\uC774\uC5B4\uB97C \uBB3C\uB9AC\uCCD0\uB77C"
     type: 1
     targetType: 2
     countToComplete: 1
     exp: 100
-    questBeginDialogue: "\uBCF4\uC2A4 \uBAAC\uC2A4\uD130\uAC00 \uB098\uD0C0\uB0AC\uC5B4\uC694
-      \uAD6C\uD574\uC8FC\uC138\uC694"
-    questProgressDialogue: "\uBCF4\uC2A4 \uBAAC\uC2A4\uD130\uB294 \uB108\uBB34 \uAC15\uD574\uC694
-      \uB9C9\uC544\uC8FC\uC138\uC694"
-    smallTalkDialogue: "\uB9C8\uC744\uC744 \uC9C0\uCF1C\uC8FC\uC138\uC694!"
+    questBeginDialogue: "\uC5D8\uB80C \uC554\uC11D\uBB38\uC591 \uC704\uC5D0 \uC774\uC0C1\uD55C
+      \uACE8\uB818\uC774 \uC0DD\uACBC\uC5B4! \uC7E4\uAC00 \uC608\uC5B8\uC758 \uB9C8\uC744\uC758
+      \uC704\uD611\uC778\uAC00\uBD10 \uC9C0\uAE08\uC758 \uB108\uB77C\uBA74 \uC774\uAE38
+      \uC218 \uC788\uC744\uAC70\uC57C \uC5D8\uB80C!"
+    questProgressDialogue: "\uC608\uC5B8\uC5D0 \uC758\uD558\uBA74 \uC800 \uACE8\uB818\uC758
+      \uC774\uB984\uC740 \uADF8\uB79C\uB2E4\uC774\uC5B4 \uC778\uAC00\uBD10 \uB9C8\uC744\uC744
+      \uADF8\uB79C\uB2E4\uC774\uC5B4\uB85C\uBD80\uD130 \uAD6C\uD574\uC918!"
+    smallTalkDialogue: "\uC800 \uACE8\uB818 \uADFC\uCC98\uC5D0 \uAC00\uAE30\uB9CC\uD574\uB3C4
+      \uC8FD\uC774\uB824\uACE0 \uB4E0\uB2E4\uACE0 \uC800\uB7F0\uAC8C \uB9C8\uC744\uC5D0
+      \uACC4\uC18D \uC788\uB2E4\uAC04 \uC6B0\uB9AC\uB294 \uC544\uBB34\uAC83\uB3C4
+      \uD558\uC9C0\uBABB\uD558\uAC8C \uB420\uAC70\uC57C"
     startCondition: 5
     nextQuestID: 6
     npcID: 1

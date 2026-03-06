@@ -43,6 +43,6 @@ MonoBehaviour:
   - level: 10
     maxHp: 300
     requiredExp: 360
-  rotationSpeed: 800
+  rotationSpeed: 1200
   jumpPower: 8
   gravityScale: 10

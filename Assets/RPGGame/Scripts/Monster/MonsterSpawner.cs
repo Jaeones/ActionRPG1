@@ -21,6 +21,8 @@ namespace RPGGame
         private static MonsterSpawner instance = null;
 
         [SerializeField] private GameObject chomperMonsterPrefab;
+        [SerializeField] private GameObject grenadierMonsterPrefab;
+
         [SerializeField] private Transform[] spawnPoints;
 
         [SerializeField] private MonsterWave[] monsterWaves;
@@ -130,6 +132,10 @@ namespace RPGGame
 
             Dialogue.Instance.ShowDialogueTextTemporarily(instance.monsterWaves[instance.currentWaveIndex].spawnMessage);
         }
-    }
 
+        public static void SpawnGrenadier()
+        {
+            instance.grenadierMonsterPrefab.SetActive(true);
+        }
+    }
 }

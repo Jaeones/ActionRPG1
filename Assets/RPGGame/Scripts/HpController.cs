@@ -6,23 +6,22 @@ namespace RPGGame
 {
     public class HpController : MonoBehaviour
     {
-        [SerializeField] private float maxHp = 0f; // �ִ� ü��
-        [SerializeField] private float currentHp = 0f; // ���� ü��
-        [SerializeField] private float defense = 0f; // ����
-        
+        [SerializeField] private float maxHp = 0f; // Maximum HP
+        [SerializeField] private float currentHp = 0f; // Current HP
+        [SerializeField] private float defense = 0f; // Defense value
 
-        // ������ �޾��� �� ȣ��Ǵ� �̺�Ʈ
+        // Invoked when HP changes.
         [SerializeField] private UnityEvent<float, float> OnHpChanged;
 
-        // �׾��� �� ����Ǵ� �̺�Ʈ
+        // Invoked when HP reaches zero.
         [SerializeField] private UnityEvent OnDead;
 
         public void SetMaxHp(float maxHp)
         {
             this.maxHp = maxHp;
-            currentHp = maxHp; // �ִ� ü���� �����ϸ� ���� ü�µ� �ִ� ü������ �ʱ�ȭ
+            currentHp = maxHp; // Reset current HP to max HP.
 
-            OnHpChanged?.Invoke(currentHp, maxHp); // ü�� ���� �̺�Ʈ ȣ��
+            OnHpChanged?.Invoke(currentHp, maxHp);
         }
 
         public void SetDefense(float defense)
@@ -30,30 +29,29 @@ namespace RPGGame
             this.defense = defense;
         }
 
-
-        // Health ������ ȹ���� Hp�� ȸ���� �� �����ϴ� �Լ�
+        // Heal HP and clamp to max HP.
         public virtual void OnHealed(float healAmount)
         {
-            currentHp = Mathf.Min(currentHp + healAmount, maxHp); // ���� ü���� �ִ� ü������ �����Ͽ� ȸ��
-            OnHpChanged?.Invoke(currentHp, maxHp); // ü�� ���� �̺�Ʈ ȣ��
+            currentHp = Mathf.Min(currentHp + healAmount, maxHp);
+            OnHpChanged?.Invoke(currentHp, maxHp);
         }
 
         public virtual void OnDamaged(float damage)
         {
-            float finalDamage = Mathf.Max(0f, damage - defense); // ������ ������ ���� ������ ���
-            currentHp = Mathf.Max(0f, currentHp - finalDamage); // ���� ü���� 0 �̻����� �����ϸ鼭 ������ ����
-            OnHpChanged?.Invoke(currentHp, maxHp); // ü�� ���� �̺�Ʈ ȣ��
+            float finalDamage = Mathf.Max(0f, damage - defense);
+            currentHp = Mathf.Max(0f, currentHp - finalDamage);
+            OnHpChanged?.Invoke(currentHp, maxHp);
             if (currentHp <= 0f)
             {
-                OnDead?.Invoke(); // ���� �̺�Ʈ ȣ��
+                OnDead?.Invoke();
             }
         }
 
         public virtual void Die()
         {
-            currentHp = 0f; // ü���� 0���� ����
-            OnHpChanged?.Invoke(currentHp, maxHp); // ü�� ���� �̺�Ʈ ȣ��
-            OnDead?.Invoke(); // ���� �̺�Ʈ ȣ��
+            currentHp = 0f;
+            OnHpChanged?.Invoke(currentHp, maxHp);
+            OnDead?.Invoke();
         }
 
         public void SubscribeOnDead(UnityAction onDeadAction)
@@ -61,5 +59,4 @@ namespace RPGGame
             OnDead?.AddListener(onDeadAction);
         }
     }
-
 }
