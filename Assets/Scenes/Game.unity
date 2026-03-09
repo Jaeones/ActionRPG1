@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49155432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5572992825119353671, guid: d9faa6f29c8c56244ad5c030121bab2c, type: 3}
+  m_PrefabInstance: {fileID: 935275246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &54642945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2084670165256899477, guid: 3532c8baf3166f14f903778255d4fbfa, type: 3}
@@ -862,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28cbd5b4ec074b498906fda28c6d7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  gameMenu: {fileID: 0}
+  gameMenu: {fileID: 49155432}
   gameMenuOpenDelay: 0.5
   gameStartComment: "\uB9C8\uC744\uC5D0 \uBB38\uC81C\uAC00 \uC0DD\uACBC\uB2E4\uACE0
     \uAE09\uD788 \uC5F0\uB77D\uC744 \uBC1B\uC558\uC5B4\n\uC5B4\uC11C \uC5D0\uC774\uC81C\uC774\uC5D0\uAC8C
@@ -3979,7 +3984,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  attackAmount: 0
+  weaponAttackAmount: 0
+  ownerAttackAmount: 0
   radius: 0.1
   hitParticle: {fileID: 2021018726}
   attackPoints:

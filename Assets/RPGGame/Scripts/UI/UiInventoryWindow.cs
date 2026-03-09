@@ -1,8 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 
 namespace RPGGame
 {
@@ -12,12 +9,9 @@ namespace RPGGame
 
         [SerializeField] private GameObject window;
         [SerializeField] private RectTransform contentTransform;
-
         [SerializeField] private UiInventoryListItem itemPrefab;
-
         [SerializeField] private float itemWidth;
         [SerializeField] private float itemHeight;
-
         [SerializeField] private List<UiInventoryListItem> items = new List<UiInventoryListItem>();
 
         public static bool IsOn { get { return instance.window.activeSelf; } }
@@ -37,7 +31,7 @@ namespace RPGGame
 
         public static void OnItemListChanged()
         {
-            if(instance.items.Count == InventoryManager.Instance.ItemCount)
+            if (instance.items.Count == InventoryManager.Instance.ItemCount)
             {
                 foreach (var item in instance.items)
                 {
@@ -55,7 +49,6 @@ namespace RPGGame
             instance.items.Clear();
 
             const int maxXCount = 4;
-
             List<ItemSlot> itemList = InventoryManager.Instance.GetItems();
 
             foreach (var itemSlot in itemList)
@@ -69,28 +62,19 @@ namespace RPGGame
             }
 
             Vector2 contentSize = instance.contentTransform.sizeDelta;
-
-            float lineCount = itemList.Count / maxXCount + 1;   //올림
-
+            float lineCount = itemList.Count / maxXCount + 1;
             contentSize.y = lineCount * instance.itemHeight + (lineCount - 1) * 10f + 20f;
-
             instance.contentTransform.sizeDelta = contentSize;
-
         }
 
-        // 인벤토리 창 열기/닫기
         public static void ShowWindow()
         {
             instance.window.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
 
         public static void CloseWindow()
         {
             instance.window.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false; 
         }
     }
 }

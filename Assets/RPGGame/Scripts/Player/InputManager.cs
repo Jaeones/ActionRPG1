@@ -23,7 +23,7 @@ namespace RPGGame
 
         private void OnEnable()
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            UpdateCursorState(false);
         }
         private void Awake()
         {
@@ -63,19 +63,31 @@ namespace RPGGame
                 else UIQuestWindow.Show();
             }
 
-            Movement = moveAction.ReadValue<Vector2>();
-            IsJump = jumpAction.WasPressedThisFrame();
+            bool isGameMenuOpen = GameManager.Instance != null && GameManager.Instance.IsGameMenuOpen;
+            bool isUIOpen = UiInventoryWindow.IsOn || UIQuestWindow.IsOn || isGameMenuOpen;
+            UpdateCursorState(isUIOpen);
 
-            if (UiInventoryWindow.IsOn || UIQuestWindow.IsOn)
+            if (isUIOpen)
             {
+                Movement = Vector2.zero;
+                IsJump = false;
                 IsAttack = false;
                 MouseMove = Vector2.zero;
                 return;
             }
 
+            Movement = moveAction.ReadValue<Vector2>();
+            IsJump = jumpAction.WasPressedThisFrame();
+
             bool overUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
             IsAttack = !overUI && attackAction.WasPressedThisFrame();
             MouseMove = cameraRotationAction.ReadValue<Vector2>();
+        }
+
+        private static void UpdateCursorState(bool isUIOpen)
+        {
+            Cursor.lockState = isUIOpen ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = isUIOpen;
         }
 
     }

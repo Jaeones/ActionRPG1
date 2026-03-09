@@ -34,6 +34,7 @@ namespace RPGGame
         [SerializeField] private UnityEvent<State> OnStateChanged;
 
         private int level = 1;
+        private const float AttackPerLevel = 5f;
 
         // 플레이어가 사용할 데이터 변수(ScriptableObject를 연결)
         [SerializeField] private PlayerData data;
@@ -56,6 +57,7 @@ namespace RPGGame
         public bool isPlayerDead { get { return state == State.Dead; } }
 
         public State currentState { get { return state; } }
+        public float CurrentAttack { get { return (level - 1) * AttackPerLevel; } }
 
         private void Awake()
         {
@@ -244,8 +246,12 @@ namespace RPGGame
             {
                 hpController.SetMaxHp(currentLevelData.maxHp);
             }
+
+            if (weaponController != null)
+            {
+                weaponController.SetOwnerAttack(CurrentAttack);
+            }
         }
 
     }
 }
-

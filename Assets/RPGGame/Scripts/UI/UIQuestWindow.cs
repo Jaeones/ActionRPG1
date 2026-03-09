@@ -58,16 +58,12 @@ namespace RPGGame
         {
             if (instance == null || instance.window == null) return;
             instance.window.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
 
         public static void Close()
         {
             if (instance == null || instance.window == null) return;
             instance.window.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
 
         private void OnQuestCompleteCountChanged(int questID, int completeCount)

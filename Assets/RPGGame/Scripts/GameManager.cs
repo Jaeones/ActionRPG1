@@ -7,11 +7,29 @@ namespace RPGGame
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance { get; private set; }
+
         [SerializeField] private GameObject gameMenu;
         [SerializeField] private float gameMenuOpenDelay = 0.5f;
 
         [SerializeField, TextArea(5, 5)] private string gameStartComment;
         [SerializeField, TextArea(5, 5)] private string gameClearComment;
+
+        public bool IsGameMenuOpen
+        {
+            get { return gameMenu != null && gameMenu.activeSelf; }
+        }
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
 
         public void GameStart()
         {
@@ -74,7 +92,7 @@ namespace RPGGame
 #endif
         }
 
-        //Dialogue¿¡¼­ °ÔÀÓ ½ÃÀÛ ´ë»ç¿Í °ÔÀÓ Å¬¸®¾î ´ë»ç¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
+        //Dialogueì—ì„œ ê²Œì„ ì‹œì‘ ëŒ€ì‚¬ì™€ ê²Œì„ í´ë¦¬ì–´ ëŒ€ì‚¬ë¥¼ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
         private void ShowGameStartDialog()
         {
             if (!string.IsNullOrEmpty(gameStartComment))
